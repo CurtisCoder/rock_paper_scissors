@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title> 
+</head>
+<body>
+    
+
+    
+    <script> 
+        
+//player selects choice
+             
+        let playerSelection = enter_choice(); 
+
+        function enter_choice() {
+            while (mySelection !== 'rock' && mySelection !== 'paper' && mySelection !== 'scissors') {
+                var selection = prompt("enter 'rock', 'paper', or 'scissors'");
+                var mySelection = selection.toLowerCase();
+            }     
+                return mySelection;
+        }  
+ 
+        console.log(playerSelection);
+        
+//now it's the computer's turn
+    
+        let competitionSelection = computerSelection(3);
+
+        function computerSelection(i) {
+            let x = Math.floor(Math.random()*i + 1);  
+    
+            if (x == 1) {
+                    var y = "rock";                        
+                } else if (x == 2) {
+                    var y = ("paper");                        
+                } else {
+                var y = ("scissors");                       
+                }
+            return y;
+}
+        console.log(competitionSelection);
+
+// coding the action
+
+        actionOn(playerSelection, competitionSelection);
+
+        function actionOn() {
+
+            if(playerSelection == competitionSelection) {
+                alert('TIE! ' + playerSelection + ' does not beat ' + competitionSelection);
+            } 
+            else if(playerSelection == "rock" && competitionSelection !== "paper") {
+                alert('Human wins! ' + playerSelection + ' beats ' + competitionSelection);
+            }
+            else if(playerSelection == "paper" && competitionSelection !== "scissors") {
+                alert('Human wins! ' + playerSelection + ' beats ' + competitionSelection);
+            }
+            else if(playerSelection == "scissors" && competitionSelection !== "rock") {
+                alert('Human wins! ' + playerSelection + ' beats ' + competitionSelection);
+            }
+            else {
+                alert('Computer wins ' + competitionSelection + ' beats ' + playerSelection)
+            }
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+    </script>
+
+</body>
+</html>
