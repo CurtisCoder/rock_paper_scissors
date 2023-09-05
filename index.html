@@ -13,11 +13,16 @@
         
 // start game
 
+game_on();
+
+function game_on(){
+
         let game = 1;
         let playerScore = 0;
         let computerScore = 0;
 
-        while (game<6) {
+        
+            while (game<6) {
 
 //player selects choice
        
@@ -89,10 +94,10 @@
         } else if (playerScore < computerScore) {
             alert("GAME OVER - Skynet wins by a score of " + computerScore + " to " + playerScore);
         } else {
-            alert("GAME OVER - it's a " + playerScore + " - " + computerScore + "tie");
+            alert("GAME OVER - it's a " + playerScore + "-" + computerScore + " tie");
         }
-
     
+    }
 
 
 
