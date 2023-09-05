@@ -11,8 +11,16 @@
     
     <script> 
         
+// start game
+
+        let game = 1;
+        let playerScore = 0;
+        let computerScore = 0;
+
+        while (game<6) {
+
 //player selects choice
-             
+       
         let playerSelection = enter_choice(); 
 
         function enter_choice() {
@@ -54,22 +62,37 @@
             } 
             else if(playerSelection == "rock" && competitionSelection !== "paper") {
                 alert('Human wins! ' + playerSelection + ' beats ' + competitionSelection);
+                playerScore++;
             }
             else if(playerSelection == "paper" && competitionSelection !== "scissors") {
                 alert('Human wins! ' + playerSelection + ' beats ' + competitionSelection);
+                playerScore++;
             }
             else if(playerSelection == "scissors" && competitionSelection !== "rock") {
                 alert('Human wins! ' + playerSelection + ' beats ' + competitionSelection);
+                playerScore++;
             }
             else {
-                alert('Computer wins ' + competitionSelection + ' beats ' + playerSelection)
+                alert('Skynet wins ' + competitionSelection + ' beats ' + playerSelection);
+                computerScore++;
             }
         }
+            console.log("Human has a score of " + playerScore);
+            console.log("Computer has a score of " + computerScore);
+            game++;
+    }
 
+// report final score
 
+        if (playerScore > computerScore) {
+            alert("GAME OVER - Human wins by a score of " + playerScore + " to " + computerScore);
+        } else if (playerScore < computerScore) {
+            alert("GAME OVER - Skynet wins by a score of " + computerScore + " to " + playerScore);
+        } else {
+            alert("GAME OVER - it's a " + playerScore + " - " + computerScore + "tie");
+        }
 
-
-
+    
 
 
 
