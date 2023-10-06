@@ -6,106 +6,61 @@
     <title>Document</title> 
 </head>
 <body>
-    
+   
+        <h1>Select one to play</h1>
+        <button id="rock">Rock</button>
+        <button id="paper">Paper</button>
+        <button id="scissors">Scissors</button>
 
     
-    <script> 
+<script src="myfunctions.js"> </script>
+
+<script>
         
-// start game
+    let numberOfGames = 0;
+    let playerScore = 0;
+    let computerScore = 0;
 
-game_on();
+                document.querySelector('#rock').addEventListener("click", rockFun);
+                document.querySelector('#paper').addEventListener("click", paperFun);
+                document.querySelector('#scissors').addEventListener("click", scissorFun);
+                   
+                function rockFun() {
+                    playerSelection = "rock";
+                    console.log("player selects " + playerSelection);
 
-function game_on(){
-
-        let game = 1;
-        let playerScore = 0;
-        let computerScore = 0;
-
-        
-            while (game<6) {
-
-//player selects choice
-       
-        let playerSelection = enter_choice(); 
-
-        function enter_choice() {
-            while (mySelection !== 'rock' && mySelection !== 'paper' && mySelection !== 'scissors') {
-                var selection = prompt("enter 'rock', 'paper', or 'scissors'");
-                var mySelection = selection.toLowerCase();
-            }     
-                return mySelection;
-        }  
- 
-        console.log(playerSelection);
-        
-//now it's the computer's turn
-    
-        let competitionSelection = computerSelection(3);
-
-        function computerSelection(i) {
-            let x = Math.floor(Math.random()*i + 1);  
-    
-            if (x == 1) {
-                    var y = "rock";                        
-                } else if (x == 2) {
-                    var y = ("paper");                        
-                } else {
-                var y = ("scissors");                       
+                    computerSelect = computerSelection();
+                    console.log("computer selects " + computerSelect);    
+                    
+                    actionOn();
+                    maxGames();
                 }
-            return y;
-}
-        console.log(competitionSelection);
 
-// coding the action
+                function paperFun() {
+                    playerSelection = "paper";
+                    console.log("player selects " + playerSelection);
 
-        actionOn(playerSelection, competitionSelection);
+                    computerSelect = computerSelection();
+                    console.log("computer selects " + computerSelect);   
+                    
+                    actionOn();
+                    maxGames();
+                }
 
-        function actionOn() {
+                function scissorFun() {
+                    playerSelection = "scissors";
+                    console.log("player selects " + playerSelection);
 
-            if(playerSelection == competitionSelection) {
-                alert('TIE! ' + playerSelection + ' does not beat ' + competitionSelection);
-            } 
-            else if(playerSelection == "rock" && competitionSelection !== "paper") {
-                alert('Human wins! ' + playerSelection + ' beats ' + competitionSelection);
-                playerScore++;
-            }
-            else if(playerSelection == "paper" && competitionSelection !== "scissors") {
-                alert('Human wins! ' + playerSelection + ' beats ' + competitionSelection);
-                playerScore++;
-            }
-            else if(playerSelection == "scissors" && competitionSelection !== "rock") {
-                alert('Human wins! ' + playerSelection + ' beats ' + competitionSelection);
-                playerScore++;
-            }
-            else {
-                alert('Skynet wins ' + competitionSelection + ' beats ' + playerSelection);
-                computerScore++;
-            }
-        }
-            console.log("Human has a score of " + playerScore);
-            console.log("Computer has a score of " + computerScore);
-            game++;
-    }
-
-// report final score
-
-        if (playerScore > computerScore) {
-            alert("GAME OVER - Human wins by a score of " + playerScore + " to " + computerScore);
-        } else if (playerScore < computerScore) {
-            alert("GAME OVER - Skynet wins by a score of " + computerScore + " to " + playerScore);
-        } else {
-            alert("GAME OVER - it's a " + playerScore + "-" + computerScore + " tie");
-        }
+                    computerSelect = computerSelection();
+                    console.log("computer selects " + computerSelect);    
+                    
+                    actionOn(); 
+                    maxGames();                   
+                }
+            
     
-    }
 
-
-
-
-
-
-
-    </script>
+</script>
 
 </body>
 </html>
